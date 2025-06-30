@@ -39,7 +39,6 @@ async def predict(file: UploadFile = File(...)):
     category, description, fruit_benefits, smoothie_recipe, similar_fruits_list = fruit_master.get_details(predicted_name)
 
     if predicted_name and y > 0.5:
-        # print(f'Predicted class is {predicted_name} with {y * 100} accuracy')
         return JSONResponse(content={
             "response_code": 200,
             "name": predicted_name,

@@ -102,9 +102,6 @@ startCameraBtn.addEventListener("click", async () => {
     show_perc.style.display = "none";
     bigTxt.style.display = "block";
     imageShow.style.display = "none";
-  } catch (err) {
-    // alert("Camera access denied or not available.");
-    alert(err);
   }
 });
 
