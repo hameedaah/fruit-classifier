@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fruit Classifier</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+  <body>
+    <h2 id="bigTxt">🍓 FRUITION 🍓</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+
+      <video id="cameraStream" autoplay playsinline style="display:none; width: 100%; max-width: 300px; border-radius: 10px;"></video>
+
+
+      <button type="button" id="startCameraBtn">
+        <i class="fas fa-camera"></i> Use Camera
+      </button>
+
+      <div id="showCapture" style="display: none;">
+        <br>
+        <button type="button" id="captureBtn">
+          <i class="fas fa-circle"></i> Capture
+        </button>
+      </div>
+
+      <br>
+      <input type="file" name="file" id="fileInput" accept="image/*" required />
+      <label for="fileInput">Choose an Image</label>
+      <p id="fileStatus"></p>
+
+      <br>
+      <div id="imageShow" style="display: none;">
+        <img id="imagePreview" src="" alt="Image Preview" style="max-height: 150px;" />
+        <br>
+        <br>
+      </div>
+    
+
+      <button type="submit">Submit</button>
+      <span id="show_perc" style="display: none;"><br><small id="percent"></small></span>
+    </form>
+
+    <p id="resultText" style="display: none;"></p>
+    <p id="fruitDetails" style="display: none;">
+      <b><span id="fruitName"></span></b> falls under <span id="fruitCategory"></span>:<br>
+      They are <span id="fruitDescription" style="text-transform: lowercase;"></span><br>
+      <br><b>Its benefits are:</b><br>
+      <span id="fruitBenefits"></span><br>
+      <br><b>Recipe for a smoothie:</b><br>
+      <span id="smoothieRecipe"></span><br>
+      <br><b>Some similar fruits are:</b><br>
+      <span id="similarFruits"></span>
+    </p>
+
+    <script src="static/script.js"></script>
+
+    <script>
+
+
+    </script>
+  </body>
+</html>
