@@ -122,7 +122,7 @@ fruit-classifier/
         ├── Categorical_Details.json
         ├── classnames.txt
         └── Nutritional_Benefits.json
-
+````
 
 
 ### 🎯 Use Cases
