@@ -18,7 +18,7 @@ We are a forward-thinking tech company dedicated to revolutionizing how consumer
 - [Imported Libraries](#imported-libraries)
 - [Model Workflow](#model-workflow)
 - [Installation & Setup](#installation-setup)
-- [Streamlit App](#streamlit-app)
+- [ App Interface and Prediction Flow](#streamlit-app)
 - [Limitations](#limitations)
 - [Future Improvements](#future-improvements)
 - [Contributors](#contributors)
@@ -204,8 +204,8 @@ pip install pandas numpy matplotlib seaborn tensorflow keras scikit-learn
     * `Jinja2`: For rendering HTML templates.
 
 &nbsp;
-<a name="streamlit-app"></a>
-## 💡 Streamlit App - Interface and Prediction Flow
+<a name="app-interface"></a>
+## 💡 App Interface and Prediction Flow
 
 ### 📦 Features
 
