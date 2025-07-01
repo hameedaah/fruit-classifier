@@ -4,7 +4,7 @@
 <a name="overview"></a>
 ## 📖 Overview
 
-**Fruition** is a deep learning-powered fruit classification app that uses Convolutional Neural Networks (CNNs) to recognize fruit types from images. It features a **Streamlit web interface** that allows users to either upload a fruit image or take a picture using their device’s camera, and receive the predicted class along with fruit facts, benefits, and even a smoothie recipe suggestion.
+**Fruition** is a deep learning-powered fruit classification app that uses Convolutional Neural Networks (CNNs) to recognize fruits from images. It features a **Streamlit web interface** that allows users to either upload a fruit image or take a picture using their device’s camera, and receive the predicted class along with fruit facts, benefits, and even a smoothie recipe suggestion.
 
 We are a forward-thinking tech company dedicated to revolutionizing how consumers interact with fresh produce. Our mission is to leverage cutting-edge machine learning and deep learning technologies to create innovative solutions that empower individuals to make healthier and more informed food choices. We believe that technology can simplify daily decisions, bringing clarity and convenience to the complex world of nutrition and healthy living. With Fruition, the future of fruit identification and dietary guidance is just a snap away.
 
@@ -18,7 +18,7 @@ We are a forward-thinking tech company dedicated to revolutionizing how consumer
 - [Imported Libraries](#imported-libraries)
 - [Model Workflow](#model-workflow)
 - [Installation & Setup](#installation-setup)
-- [ App Interface and Prediction Flow](#streamlit-app)
+- [App Interface and Prediction Flow](#app-interface)
 - [Limitations](#limitations)
 - [Future Improvements](#future-improvements)
 - [Contributors](#contributors)
@@ -73,7 +73,6 @@ You can download it here:
 - 40,000 labeled images
 - Accompanying CSV files and `classname.txt` for class mapping
 
-The notebook expects the `Fruit_dataset` directory, located at `../input/fruit-classification-dataset/`. Ensure your dataset is structured accordingly relative to the notebook's location.
 
 &nbsp;
 <a name="imported-libraries"></a>
@@ -190,6 +189,7 @@ The Jupyter Notebook (`cnn-fruit-classifier.ipynb`) contains all the code for da
 jupyter notebook notebooks/cnn-fruit-classifier.ipynb
 ```
 
+The notebook expects the `Fruit_dataset` directory, located at `../input/fruit-classification-dataset/`. Ensure the dataset is structured accordingly relative to the notebook's location.
 
 Install necessary packages if needed:
 
