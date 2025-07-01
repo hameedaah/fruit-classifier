@@ -9,7 +9,7 @@ dependencies = [
     "uvicorn[standard]",
     "pillow",
     "jinja2",
-    "tensorflow",
+    "tensorflow==2.18.0",
     "numpy"
 ]
 
