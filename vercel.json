@@ -12,4 +12,7 @@
       "dest": "app.py"
     }
   ]
+    ,"env": {
+    "GOOGLE_API_KEY": "@GOOGLE_API_KEY"
+  }
 }
