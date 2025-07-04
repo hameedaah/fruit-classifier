@@ -9,12 +9,8 @@ app = FastAPI()
 fruit_master = FruitMaster()
 
 # pip install "tensorflow==2.18.0"
-# python -m venv venv
 # venv\Scripts\activate 
 # .\venv\Scripts\Activate.ps1
-
-#added situation of coconut, predicting brazil nut, because the coconut image looks like brazil nut.
-#also a situation of strawberry being classified as redcurrant, but only when the prediction threshold is low (Just guessing).
 
 # Serve HTML template
 templates = Jinja2Templates(directory="templates")
@@ -37,17 +33,19 @@ async def predict(file: UploadFile = File(...)):
     print(predicted_name, y)
     #get fruit details
     category, description, fruit_benefits, smoothie_recipe, similar_fruits_list = fruit_master.get_details(predicted_name)
+    gemini_details = fruit_master.get_details_from_gemini(predicted_name)
 
     if predicted_name and y > 0.5:
         return JSONResponse(content={
             "response_code": 200,
             "name": predicted_name,
             "accuracy": round(y * 100, 2),
-            "category":category,
-            "description":description,
-            "fruit_benefits":fruit_benefits,
-            "smoothie_recipe":smoothie_recipe.replace("{{fruit}}", predicted_name),
-            "similar_fruits":", ".join(similar_fruits_list)
+            "full_details": gemini_details
+            # "category":category,
+            # "description":description,
+            # "fruit_benefits":fruit_benefits,
+            # "smoothie_recipe":smoothie_recipe.replace("{{fruit}}", predicted_name),
+            # "similar_fruits":", ".join(similar_fruits_list)
             })
     
     elif predicted_name and y < 0.5:

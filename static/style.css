@@ -26,7 +26,6 @@ body {
   flex-direction: column;
   color: #fff;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  margin: 2rem;
 }
 
 body::after {
@@ -53,8 +52,93 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 50%;
+  min-width: 50%;
 }
+
+/* .slide-left {
+  transform: translateX(-30vw);
+  transition: transform 0.8s ease-in-out;
+} */
+
+#formContainer {
+  transition: transform 0.8s ease;
+  position: static;
+  /* width: 100%; */
+}
+
+#formContainer.slide-left {
+  transform: translateX(-20vw);
+}
+
+#resultContainer {  
+  position: absolute;
+  right: 30%;
+  width: 500px;
+  max-height: 600px;
+  /* max-width: 50%; */
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease;
+  color: white;
+  z-index: 1;
+  align-content:center;
+}
+
+/* Styles for typical small phones (e.g., 320px to 575px) */
+/* @media (min-width: 320px) and (max-width: 575px) {
+  body {
+    font-size: 15px;
+  }
+} */
+
+@media (max-width: 960px) {
+  #resultContainer {
+      /* top: 85%; */
+      width: 350px;
+      position: static;
+  }
+  .the_margin_class{
+    margin: 20rem 0;
+  }
+  #formContainer.slide-left {
+    transform: translateX(0);
+    
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1200px)  {
+  #resultContainer {
+      right: 10%;
+  }
+  #formContainer.slide-left {
+    transform: translateX(-30vw);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1700px)  {
+  #resultContainer {
+      right: 20%;
+  }
+  #formContainer.slide-left {
+    transform: translateX(-25vw);
+  }
+}
+
+@media (min-width: 1700px) {
+  #resultContainer {
+      right: 20%;
+  }
+  #formContainer.slide-left {
+    transform: translateX(-20vw);
+  }
+}
+
+
+#resultContainer.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 /* Stylish file input */
 input[type="file"] {
@@ -106,6 +190,9 @@ button:hover {
   color: #fff;
   text-align: center;
   text-transform: capitalize;
+  align-items: center;
+  /* width: 100%; */
+  /* max-width: 50%; */
 }
 
 #fruitDetails {
@@ -117,5 +204,8 @@ button:hover {
   backdrop-filter: blur(8px);
   color: #fff;
   /* text-align: left; */
-  max-width: 50%;
+  text-align: center;
+  align-items: center;
+  /* width: 100%; */
+  /* max-width: 50%; */
 }
