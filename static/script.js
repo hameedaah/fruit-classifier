@@ -10,6 +10,11 @@ const submitBtn = document.getElementById("submitBtn");
 const startCameraBtn = document.getElementById("startCameraBtn");
 const captureBtn = document.getElementById("captureBtn");
 const cameraStream = document.getElementById("cameraStream");
+
+const chatContainer = document.getElementById("chatContainer");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+const chatMessages = document.getElementById("chatMessages");
 let stream;
 
 // Typewriter effect function
@@ -50,6 +55,8 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
 
   if (!file) {
     alert("Please upload or capture an image.");
+      // submitBtn.disabled = false;
+      // submitBtn.innerHTML = "Submit";
     return;
   }
 
@@ -66,6 +73,11 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
   document.getElementById("formContainer").classList.add("slide-left");
   document.getElementById("resultContainer").classList.add("slide-in-right");
   
+  // Clear chat container content
+  chatMessages.innerHTML = "";
+  chatInput.value = "";
+  chatContainer.style.display = "block";
+
 
   // Optionally reveal the content inside resultContainer
   document.getElementById("resultText").style.display = "block";
@@ -73,18 +85,13 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
 
 
 
+
   // Handle responses
   if (data.name) {
     resultText.innerHTML = "";
-    typeWriter(resultText, "✨ " + data.name + " ✨", 0, 200);
     full_details.innerHTML = "";
+    typeWriter(resultText, "✨ " + data.name + " ✨", 0, 200);
     typeWriter(full_details, data.full_details);
-    // document.getElementById("fruitName").textContent = data.name;
-    // document.getElementById("fruitCategory").textContent = data.category;
-    // document.getElementById("fruitDescription").textContent = data.description;
-    // document.getElementById("fruitBenefits").textContent = data.fruit_benefits;
-    // document.getElementById("smoothieRecipe").textContent = data.smoothie_recipe;
-    // document.getElementById("similarFruits").textContent = data.similar_fruits;
     document.getElementById("percent").textContent = data.accuracy + "%";
 
     document.getElementById("body").classList.add("the_margin_class");
@@ -141,7 +148,7 @@ startCameraBtn.addEventListener("click", async () => {
     resultText.style.display = "none";
     fruitDetails.style.display = "none";
     show_perc.style.display = "none";
-    // bigTxt.style.display = "block";
+    bigTxt.style.display = "block";
     imageShow.style.display = "none";
 
     document.getElementById("formContainer").classList.remove("slide-left");
@@ -184,3 +191,39 @@ captureBtn.addEventListener("click", () => {
 });
 
 
+// ========== CHATBOT SUBMIT ========== //
+chatForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const message = chatInput.value.trim();
+
+  chatMessages.style.display = "block"
+
+  if (!message) return;
+  const userMsg = document.createElement("div");
+  userMsg.className = "user-msg";
+  userMsg.textContent = "🧑 " + message;
+  chatMessages.appendChild(userMsg);
+
+  try {
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
+    });
+
+    const data = await res.json();
+    const botMsg = document.createElement("div");
+    botMsg.className = "bot-msg";
+    botMsg.textContent = "🤖 " + data.response;
+    chatMessages.appendChild(botMsg);
+  } catch (err) {
+    const errorMsg = document.createElement("div");
+    errorMsg.className = "bot-msg";
+    errorMsg.textContent = "🤖 Sorry, something went wrong.";
+    chatMessages.appendChild(errorMsg);
+    console.error("Chat error:", err);
+  }
+
+  chatInput.value = "";
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});

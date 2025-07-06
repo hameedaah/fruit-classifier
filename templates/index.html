@@ -45,6 +45,7 @@
     <p id="resultText" style="display: none;"></p>
     <div id="fruitDetails" style="display: none;">
       <p id="full_details"></p>
+    </div>
       <!-- <p>
         <b><span id="fruitName"></span></b> falls under <span id="fruitCategory"></span>:<br>
         They are <span id="fruitDescription" style="text-transform: lowercase;"></span><br>
@@ -55,7 +56,19 @@
         <br><b>Some similar fruits are:</b><br>
         <span id="similarFruits"></span>
       </p> -->
-    </div>
+
+
+      <!-- Chat Container -->
+      <div id="chatContainer" style="display: none">
+        <br><div id="chatBox">
+          <div id="chatMessages" style="display: none"></div>
+          <form id="chatForm">
+            <label>Chat with <strong>Fruition Bot</strong></label>
+            <input type="text" id="chatInput" placeholder="Ask about the fruit..." autocomplete="off" required/>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
   </div>
     <script src="static/script.js"></script>
 
