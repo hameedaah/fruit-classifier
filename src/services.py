@@ -75,12 +75,9 @@ class FruitMaster:
         return response.text
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
-        # Consider a more detailed error return in a real app, e.g., logging the full exception.
         return "Could not retrieve detailed information at this time."
 
   def get_details(self, fruit):
-    # This method seems to pull from local JSON files, not Gemini.
-    # Ensure this is intentional and how your application flows.
     category = "Unknown"
     description = "No description available."
     smoothie_recipe = "No smoothie recipe available."

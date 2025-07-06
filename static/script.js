@@ -7,7 +7,6 @@ const bigTxt = document.getElementById("bigTxt");
 const fruitDetails = document.getElementById("fruitDetails");
 const show_perc = document.getElementById("show_perc");
 const submitBtn = document.getElementById("submitBtn");
-
 const startCameraBtn = document.getElementById("startCameraBtn");
 const captureBtn = document.getElementById("captureBtn");
 const cameraStream = document.getElementById("cameraStream");
